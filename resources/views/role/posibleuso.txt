@@ -1,0 +1,37 @@
+<? php
+   $permission = Permission::create([
+            'name'=>'Index User',
+            'slug'=>'user.index',
+            'description'=>'User can list user'
+        ]);
+        $permission_all[] = $permission->id; 
+
+    $permission = Permission::create([
+            'name'=>'Show User',
+            'slug'=>'user.show',
+            'description'=>'User can show user'
+        ]);
+        $permission_all[] = $permission->id; 
+
+    $permission = Permission::create([
+            'name'=>'Edit User',
+            'slug'=>'user.edit',
+            'description'=>'User can edit user'
+        ]);
+        $permission_all[] = $permission->id; 
+
+    $permission = Permission::create([
+            'name'=>'Delete User',
+            'slug'=>'user.delete',
+            'description'=>'User can delete user'
+        ]);
+        $permission_all[] = $permission->id; 
+
+    $permission = Permission::create([
+            'name'=>'Create User',
+            'slug'=>'user.create',
+            'description'=>'User can create user'
+        ]);
+        $permission_all[] = $permission->id; 
+
+    $roladmin->permissions()->sync($permission_all);
