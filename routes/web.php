@@ -13,8 +13,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('/role', 'RoleController')->names('role');
+Route::resource('/role', 'RoleController');
 Route::resource('/user', 'UserController');
+Route::resource('/post', 'PostController');
+
+Route::get('/publicaciones','UserRegisteredController@listPost')->name('userRegistered.index');
 
 Route::get('/test', function () {
     $users = User::find(2);

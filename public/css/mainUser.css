@@ -1,0 +1,67 @@
+.content-post
+{
+    width: 100%;
+    height: auto;
+    background-color: #fff;
+    border-radius: 5px;
+    /* -webkit-box-shadow: 1px 1px 10px 0px rgba(122, 122, 122, 1); */
+    /* -moz-box-shadow:    1px 1px 10px 0px rgba(122, 122, 122, 1); */
+    /* box-shadow:         1px 1px 10px 0px rgba(122, 122, 122, 1); */
+}
+.autor-post
+{
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    border-radius: 5px;
+}
+.name
+{
+    margin: 1rem;
+    color: #000;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 20px;
+}
+.date-post
+{
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+.date
+{
+    color: #000;
+    margin: 0.5rem 1rem ;
+}
+.text-post
+{
+    height:auto;
+    /* background-color: blue; */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 10px;
+}
+.post{
+    margin: 1rem;
+    text-align: justify;
+}
+.galeria {
+    width: 50%;
+    height:200px;
+    margin:1em auto;
+    position: relative; 
+    overflow: hidden; 
+  }
+  
+  .galeria img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* opacity: 0; */
+    /* transition: opacity 3s; */
+    width: 100%;
+  }
+  

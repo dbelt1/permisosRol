@@ -8,17 +8,18 @@ use App\User;
 
 class AuthServiceProvider extends ServiceProvider
 {
-   
+
     protected $policies = [
         // 'App\Model' => 'App\Policies\ModelPolicy',
+        'App\Models\Post' => 'App\Policies\PostPolicy',
     ];
 
-    
+
     public function boot()
     {
         $this->registerPolicies();
 
-        Gate::define('haveaccess', function(User $user,$perm){
+        Gate::define('haveaccess', function (User $user, $perm) {
             return $user->havePermission($perm);
         });
     }
