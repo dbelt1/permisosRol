@@ -22,7 +22,7 @@ class PostService
     }
     public function listPostComment()
     {
-        return $this->post->get();
+        return $this->getPost();
     }
     //methods
     public function index()
@@ -31,7 +31,12 @@ class PostService
     }
     public function store($request)
     {
-        $post = $this->post->create(['post'=>$request->post,'user_id'=>$request->user_id,'category_id'=>$request->category_id]);
+        $post = $this->post->create([
+            'post'=>$request->post,
+            'user_id'=>$request->user_id,
+            'place_id'=>$request->category_id,
+            'latitude'=>$request->latitude,
+            'length'=>$request->length]);
         return $post;
     }
     public function update($request,$id)

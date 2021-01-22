@@ -46,7 +46,3 @@
         @endforeach
     </div>
 @endsection
-
-sitio turistico
-historico
-cultural

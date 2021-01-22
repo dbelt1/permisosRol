@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PostRequest extends FormRequest
+class PlaceRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,17 +24,13 @@ class PostRequest extends FormRequest
     public function rules()
     {
         return [
-            'post'=> 'required',
-            'length'=> 'required',
-            'latitude'=> 'required'
+            'name' => 'required'
         ];
     }
     public function messages()
     {
         return [
-            'post.required' => 'Debe ingresar un texto de descripción',
-            'length.required' => 'Debe ingresar latitud',
-            'latitude.required' => 'Debe ingresar longitud'
+            'name.required' => 'Nombre requerido para crear un lugar'
         ];
     }
 }

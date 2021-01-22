@@ -15,7 +15,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/role', 'RoleController');
 Route::resource('/user', 'UserController');
 Route::resource('/post', 'PostController');
-
+Route::resource('/place','PlaceController');
 //rutas de usuarios
 Route::get('/publicaciones','UserRegisteredController@listPost')->name('userRegistered.index');
 Route::post('/crear-comentario','UserRegisteredController@createComment')->name('userRegistered.comment');

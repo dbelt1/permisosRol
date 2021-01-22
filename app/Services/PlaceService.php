@@ -14,7 +14,7 @@ class PlaceService
     //queries
     public function getPlace()
     {
-        return $this->place->where('state',1)->get(['id', 'name']);
+        return $this->place->where('state',1)->get(['id', 'name','description']);
     }
     public function getPlaceById($id)
     {

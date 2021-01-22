@@ -37,6 +37,7 @@ class PostController extends Controller
         $route = $this->photo->savePhoto($request->images);
         $post->photos()->createMany($route);
         return redirect()->route('post.index')->with('La publicación ha sido guardada con éxito');
+       
     }
     public function edit($id)
     {

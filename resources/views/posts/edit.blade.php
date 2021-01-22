@@ -36,7 +36,14 @@
                                         @endforeach
                                     </select>
                                 </div>
-
+                                <div class="form-group">
+                                    <label>Latitud</label>
+                                    <input type="number" class="form-control" name="length" placeholder="Latitud" value="{{ old('length', $post->length) }}">
+                                </div>
+                                <div class="form-group">
+                                    <label>Longitud</label >
+                                    <input type="number" class="form-control" name="latitude"placeholder="Longitud" value="{{ old('latitude', $post->latitude) }}">
+                                </div>
                                 <div class="form-group">
                                     <input type="submit" class="btn btn-primary" value="Editar Publicación">
                                 </div>

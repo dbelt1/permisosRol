@@ -43,6 +43,9 @@
                             <li class="nav-item"><a href="{{route('user.index')}}" class="nav-link">Users</a></li>
                         @endcan
                         @can('haveaccess','user.index')
+                            <li class="nav-item"><a href="{{route('place.index')}}" class="nav-link">Places</a></li>
+                        @endcan
+                        @can('haveaccess','user.index')
                             <li class="nav-item"><a href="{{route('post.index')}}" class="nav-link">Posts</a></li>
                         @endcan
                         <li class="nav-item"><a href="{{route('userRegistered.index')}}" class="nav-link">ver posts</a></li>

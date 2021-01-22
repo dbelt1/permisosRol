@@ -17,7 +17,7 @@ class CreatePostsTable extends Migration
             $table->id();
             $table->text('post');
             $table->foreignId('user_id')->references('id')->on('users');
-            $table->foreignId('category_id')->references('id')->on('categories');
+            $table->foreignId('place_id')->references('id')->on('places');
             $table->string('length');
             $table->string('latitude');
             $table->boolean('state')->default(1);

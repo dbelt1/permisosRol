@@ -33,6 +33,4 @@ class CreateFooterTable extends Migration
 }
 
 
-Modelo |servicio|Controlador||Vista 
 
-consultas |servicios de cadamodelo | llamar las funciones que necesite de cualquier modelo |la info mostrar | 
