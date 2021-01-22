@@ -9,15 +9,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
-
 Route::resource('/role', 'RoleController');
 Route::resource('/user', 'UserController');
 Route::resource('/post', 'PostController');
 
+//rutas de usuarios
 Route::get('/publicaciones','UserRegisteredController@listPost')->name('userRegistered.index');
+Route::post('/crear-comentario','UserRegisteredController@createComment')->name('userRegistered.comment');
+
+
 
 Route::get('/test', function () {
     $users = User::find(2);

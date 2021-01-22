@@ -11,9 +11,13 @@
                     <div class="card-body">
                         @include('custom.message')
 
-                        <form action="{{ route('post.store') }}" method="POST">
+                        <form action="{{ route('post.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="container">
+                                <div class="form-group">
+                                    <label>Imagenes de Publicación</label>
+                                    <input type="file" class="form-control" name="images[]" multiple accept="image/*">
+                                </div>
                                 <div class="form-group">
                                     <label>Texto de la publicación</label>
                                     <textarea name="post" class="form-control"></textarea>
@@ -25,11 +29,11 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Categoria</label>
+                                    <label>Lugar</label>
                                     <select name="category_id" class="form-control">
-                                        @foreach ($categories as $category)
-                                            <option value="seleccionar">Seleccione una Categoria</option>
-                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                        <option value="seleccionar">Seleccione una Categoria</option>
+                                        @foreach ($places as $place)
+                                            <option value="{{ $place->id }}">{{ $place->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>

@@ -20,7 +20,7 @@
                             <th scope="col">Item</th>
                             <th scope="col">Descripción</th>
                             <th scope="col">Escritor</th>
-                            <th scope="col">categoria</th>
+                            <th scope="col">Lugar</th>
                             <th scope="col">tags</th>
                             <th scope="col">Acciones</th>
                             </tr>
@@ -31,7 +31,7 @@
                                     <th>{{$item+1}}</th>
                                     <td>{{$post->post}}</td>
                                     <td>{{$post->user->name}}</td>
-                                    <td>{{$post->category->name}}</td>
+                                    <td>{{$post->place->name}}</td>
                                     <td scope="col">@foreach($post->tags as $tags){{$tags->name}}<br>@endforeach</td>
                                     <td>
                                       

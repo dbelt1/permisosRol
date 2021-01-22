@@ -12,25 +12,26 @@
                     <div class="card-body">
                         @include('custom.message')
 
-                        <form action="{{ route('post.update', $post->id) }}" method="POST">
+                        <form action="{{ route('post.update', $post->id) }}" method="POST"  enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <div class="container">
-
-                                <h3>Crear Usuario</h3>
+                                <div class="form-group">
+                                    <label>Imagenes de Publicación</label>
+                                    <input type="file" class="form-control" name="images[]" multiple accept="image/*">
                                 <div class="form-group">
                                     <label>Texto de la publicación</label>
                                     <textarea name="post" class="form-control">{{ old('post', $post->post) }}</textarea>
                                 </div>
                                 <div class="form-group">
-                                    <select name="category_id" id="categories" class="form-control">
-                                        @foreach ($categories as $category)
-                                            <option value="{{ $category->id }}" @isset($post->category->name)
-                                                    @if ($category->name === $post->category->name)
+                                    <select name="place_id" id="places" class="form-control">
+                                        @foreach ($places as $place)
+                                            <option value="{{ $place->id }}" @isset($post->place->name)
+                                                    @if ($place->name === $post->place->name)
                                                         selected
                                                     @endif
                                                 @endisset>
-                                                {{ $category->name }}
+                                                {{ $place->name }}
                                             </option>
                                         @endforeach
                                     </select>

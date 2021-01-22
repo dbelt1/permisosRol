@@ -10,8 +10,8 @@ class CommentService
     {
         $this->comment = new Comment;
     }
-    public function store()
+    public function store($request)
     {
-        $this->comment->create(['id','comment','user_id','post_id']);
+        $this->comment->create(['comment'=>$request->comment,'user_id'=>$request->user_id,'post_id'=>$request->post_id]);
     }
 }

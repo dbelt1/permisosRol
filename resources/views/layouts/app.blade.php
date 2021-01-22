@@ -17,6 +17,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
+    <link href="path/to/lightbox.css" rel="stylesheet" />
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/mainUser.css') }}" rel="stylesheet">
     <script src="https://kit.fontawesome.com/8b808e29d0.js" crossorigin="anonymous"></script>
@@ -87,5 +88,6 @@
             @yield('content')
         </main>
     </div>
+    <script src="path/to/lightbox.js"></script>
 </body>
 </html>

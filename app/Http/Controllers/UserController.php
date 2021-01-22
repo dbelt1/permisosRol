@@ -10,7 +10,10 @@ use Illuminate\Support\Facades\Gate;
 
 class UserController extends Controller
 {
-    
+    public function __construct()
+    {
+        $this->middleware(['auth','verified']);
+    }
     public function index()
     {
         $this->authorize('haveaccess','user.index');
@@ -35,7 +38,7 @@ class UserController extends Controller
             'password' => 'required'
         ]);
 
-        $user = User::create($request->all());
+        $user = User::create(['name' => $request->name,'email' => $request->email,'password' => bcrypt($request->password)]);
         return redirect()->route('user.index')->with('status_success','User saved succesfully');
     }
 
@@ -63,7 +66,7 @@ class UserController extends Controller
             'password' => 'required'
         ]);
         $user->roles()->sync($request->get('roles'));
-        $user->update($request->all());
+        $user->update(['name' => $request->name,'email' => $request->email,'password' => bcrypt($request->password)]);
         return redirect()->route('user.index')->with('status_success','User updated succesfully');
     }
 

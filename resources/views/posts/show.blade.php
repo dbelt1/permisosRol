@@ -25,7 +25,7 @@
 
                                 <div class="form-group">
                                     <label>Categoría:</label>
-                                    <div>{{ $post->category->name }}</div>
+                                    <div>{{ $post->place->name }}</div>
                                 </div>
 
                                 <div class="form-group">

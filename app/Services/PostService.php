@@ -31,12 +31,13 @@ class PostService
     }
     public function store($request)
     {
-        $this->post->create(['post'=>$request->post,'user_id'=>$request->user_id,'category_id'=>$request->category_id]);
+        $post = $this->post->create(['post'=>$request->post,'user_id'=>$request->user_id,'category_id'=>$request->category_id]);
+        return $post;
     }
     public function update($request,$id)
     {
         $post = $this->findPost($id);
-        $post->update($request->all());
+        return $post->update($request->all());
     }
     public function show($id)
     {
@@ -52,4 +53,4 @@ class PostService
         $post = $this->findPost($id);
         $post->update(['state'=>'0']);
     }
-}
+} 

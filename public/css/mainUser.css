@@ -4,6 +4,7 @@
     height: auto;
     background-color: #fff;
     border-radius: 5px;
+    padding: 1rem;
     /* -webkit-box-shadow: 1px 1px 10px 0px rgba(122, 122, 122, 1); */
     /* -moz-box-shadow:    1px 1px 10px 0px rgba(122, 122, 122, 1); */
     /* box-shadow:         1px 1px 10px 0px rgba(122, 122, 122, 1); */
@@ -44,24 +45,14 @@
     text-overflow: ellipsis;
     padding: 10px;
 }
-.post{
+.post
+{
     margin: 1rem;
     text-align: justify;
 }
-.galeria {
-    width: 50%;
-    height:200px;
-    margin:1em auto;
-    position: relative; 
-    overflow: hidden; 
-  }
-  
-  .galeria img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    /* opacity: 0; */
-    /* transition: opacity 3s; */
-    width: 100%;
-  }
-  
+.comments
+{
+    background-color: rgb(189, 189, 255);
+    padding: 10px;
+    margin: 5px;
+}

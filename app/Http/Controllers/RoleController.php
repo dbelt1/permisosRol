@@ -17,6 +17,7 @@ class RoleController extends Controller
    public function __construct()
    {
       $this->model = new RoleService;
+      $this->middleware(['auth','verified']);
    }
    public function index()
    {

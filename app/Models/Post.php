@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    protected $fillable = ['id','post','user_id','state','category_id'];
+    protected $fillable = ['id','post','user_id','state','length','latitude','category_id'];
     //relationships
 
-    public function category()
+    public function place()
     {
-        return $this->belongsTo('App\Models\Category');
+        return $this->belongsTo('App\Models\Place');
     }
     public function user()
     {
@@ -25,5 +25,8 @@ class Post extends Model
     {
         return $this->hasMany('App\Models\Comment');
     }
-
+    public function photos()
+    {
+        return $this->hasMany('App\Models\Photo');
+    }
 }
