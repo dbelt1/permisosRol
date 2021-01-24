@@ -20,8 +20,12 @@
                                 <div>{{$place->description}}</div>
                             </div>
                             <div class="form-group">
-                                <a href="{{route('place.index')}}" class="btn btn-danger">Volver</a>
-                                <a href="{{route('place.edit',$place->id)}}" class="btn btn-primary">Editar Lugar</a>
+                                <label>fecha historica</label>
+                                <div>{{$place->createdDate}}</div>
+                            </div>
+                            <div class="form-group">
+                                <a href="{{route('timeline.index')}}" class="btn btn-danger">Volver</a>
+                                <a href="{{route('timeline.edit',$place->id)}}" class="btn btn-primary">Editar Linea de tiempo</a>
                             </div>
                         </div>
                 </div>

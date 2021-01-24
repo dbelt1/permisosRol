@@ -19,6 +19,11 @@ class CreatePlacesTable extends Migration
             $table->boolean('state')->default(1);
             $table->string('image');
             $table->text('description');
+            $table->boolean('timeline')->default(0);
+            $table->timestamp('createdDate')->nullable();
+            $table->foreignId('category_id')->references('id')->on('categories');
+            $table->char('length')->nullable();
+            $table->char('latitude')->nullable();
             $table->timestamps();
         });
     }

@@ -10,7 +10,7 @@
                     <div class="card-body">
                         @include('custom.message')
 
-                        <form action="{{ route('place.store') }}" enctype="multipart/form-data" method="POST">
+                        <form action="{{ route('timeline.store') }}" enctype="multipart/form-data" method="POST">
                             @csrf
                             <div class="container">
                                 <div class="form-group">
@@ -36,6 +36,10 @@
                                         value="{{ old('description') }}">
                                 </div>
                                 <div class="form-group">
+                                    <label>Fecha de linea de tiempo</label >
+                                    <input type="date" class="form-control" name="createdDate">
+                                </div>
+                                <div class="form-group">
                                     <label>Latitud</label>
                                     <input type="text" class="form-control" name="length" placeholder="Latitud">
                                 </div>
@@ -44,7 +48,7 @@
                                     <input type="text" class="form-control" name="latitude"placeholder="Longitud">
                                 </div>
                                 <div class="form-group">
-                                    <input type="submit" class="btn btn-primary" value="Crear Lugar">
+                                    <input type="submit" class="btn btn-primary" value="Crear Linea de tiempo">
                                 </div>
                             </div>
                         </form>

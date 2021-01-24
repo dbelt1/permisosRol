@@ -36,14 +36,6 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label>Latitud</label>
-                                    <input type="number" name="latitude"class="form-control" placeholder="Latitud">
-                                </div>
-                                <div class="form-group">
-                                    <label>Longitud</label >
-                                    <input type="number" name="length"class="form-control" placeholder="Longitud">
-                                </div>
-                                <div class="form-group">
                                     <input type="submit" class="btn btn-primary" value="Crear Publicación">
                                 </div>
                             </div>

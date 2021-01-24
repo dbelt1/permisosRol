@@ -6,12 +6,12 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <h2>Lugares</h2>
+                    <h2>Categorias</h2>
                 </div>
 
                 <div class="card-body">
-                    @can('haveaccess','place.create')
-                        <a href="{{route('place.create')}}"class='btn btn-primary float-right'>Crear</a>
+                    @can('haveaccess','category.create')
+                        <a href="{{route('category.create')}}"class='btn btn-primary float-right'>Crear</a>
                     @endcan
                     @include('custom.message')
                     <table class="table table-bordered text-center">
@@ -24,22 +24,22 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($places as $item => $place)
+                            @foreach ($categories as $item => $category)
                                 <tr>
                                     <th>{{$item+1}}</th>
-                                    <td>{{$place->name}}</td>
-                                    <td>{{$place->description}}</td>
+                                    <td>{{$category->name}}</td>
+                                    <td>{{$category->description}}</td>
                                     <td>
-                                        <form action="{{route('place.destroy',$place->id)}}" method="POST">
+                                        <form action="{{route('category.destroy',$category->id)}}" method="POST">
                                             @csrf
                                             @method('DELETE')
-                                            @can('haveaccess','place.show')
-                                                <a href="{{route('place.show',$place->id)}}" class="btn btn-success btn-sm"><i class="far fa-eye"></i></a>
+                                            @can('haveaccess','category.show')
+                                                <a href="{{route('category.show',$category->id)}}" class="btn btn-success btn-sm"><i class="far fa-eye"></i></a>
                                             @endcan
-                                            @can('haveaccess','place.edit')
-                                                <a href="{{route('place.edit',$place->id)}}" class="btn btn-primary btn-sm"><i class="far fa-edit"></i></a>
+                                            @can('haveaccess','category.edit')
+                                                <a href="{{route('category.edit',$category->id)}}" class="btn btn-primary btn-sm"><i class="far fa-edit"></i></a>
                                             @endcan
-                                            @can('haveaccess','place.delete')
+                                            @can('haveaccess','category.delete')
                                                 <button class="btn btn-danger btn-sm"><i class="far fa-trash-alt"></i></button>
                                             @endcan
                                         </form>

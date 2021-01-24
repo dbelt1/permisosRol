@@ -6,36 +6,31 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        <h3><small>Ver Publicación</small></h3>
                     </div>
 
                     <div class="card-body">
                         @include('custom.message')
 
-                        <form action="{{ route('post.store') }}" method="POST">
+                        <form action="{{ route('category.update', $category->id) }}" method="POST">
                             @csrf
+                            @method('PUT')
                             <div class="container">
 
+                                <h3>Editar Categoria</h3>
+
                                 <div class="form-group">
-                                    <label>Texto de Post:</label>
-                                    <div>{{ $post->post }}</div>
+                                    <label>Name</label>
+                                    <input type="text" class="form-control" name="name" categoryholder="name"
+                                        value="{{ old('name', $category->name) }}">
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Categoría:</label>
-                                    <div>{{ $post->place->name }}</div>
+                                    <label>Descripción</label>
+                                    <input type="text" class="form-control" name="description" categoryholder="descripción"
+                                        value="{{ old('email', $category->description) }}">
                                 </div>
-
                                 <div class="form-group">
-                                    <label>Autor:</label>
-                                    <div>{{ $post->user->name }}</div>
-                                </div>
-
-                                <div class="form-group">
-                                    <a href="{{ route('post.index') }}" class="btn btn-danger">Volver</a>
-                                    <a href="{{ route('post.edit', $post->id) }}" class="btn btn-primary">Editar
-                                        Publicación</a>
-
+                                    <input type="submit" class="btn btn-primary" value="Editar Categoria">
                                 </div>
                             </div>
 

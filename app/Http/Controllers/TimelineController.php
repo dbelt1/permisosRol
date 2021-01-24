@@ -7,13 +7,13 @@ use App\Services\CategoryService;
 use App\Http\Requests\PlaceRequest;
 use App\Services\PhotoService;
 use App\Traits\ImageTrait;
-class PlaceController extends Controller
+class TimelineController extends Controller
 {
-    protected $place;
+    protected $timeline;
 
     public function __construct()
     {
-        $this->place = new PlaceService;
+        $this->timeline = new PlaceService;
         $this->category = new CategoryService;
         $this->photo = new PhotoService;
         $this->middleware(['auth','verified']);
@@ -21,50 +21,55 @@ class PlaceController extends Controller
     public function index()
     {
         $this->authorize('haveaccess', 'place.index');
-        $places = $this->place->index(0);
-        return view('places.index',compact('places'));
+        $places = $this->timeline->index(1);
+        return view('timelines.index',compact('places'));
     }
     public function create()
     {
         $this->authorize('haveaccess', 'place.create');
         $categories = $this->category->getAllCategory();
-        return view('places.create',compact('categories'));
+        return view('timelines.create',compact('categories'));
     }
     public function store(PlaceRequest $request)
     {
+        $this->authorize('haveaccess', 'place.create');
         if($request->category_id === 'seleccionar'){
             return back();
         }else{
             $route = $this->photo->saveOneImage($request->images);
-            $this->place->store($request,$route,0);
-            return redirect()->route('place.index');
+            $this->timeline->store($request,$route,1);
+            return redirect()->route('timeline.index');
         }
     }
     public function edit($id)
     {
-        $place = $this->place->getPlaceById($id);
+        $this->authorize('haveaccess', 'place.edit');
+        $place = $this->timeline->getPlaceById($id);
         $categories = $this->category->getAllCategory();
-        return view('places.edit',compact('place','categories'));
+        return view('timelines.edit',compact('place','categories'));
        
     }
     public function update(PlaceRequest $request, $id)
     {
+        $this->authorize('haveaccess', 'place.edit');
         if($request->category_id === 'seleccionar'){
             return back();
         }else{
             $route = $this->photo->saveOneImage($request->images);
-            $this->place->update($request,$id,$route,0);
-            return redirect()->route('place.index');
+            $this->timeline->update($request,$id,$route,1);
+            return redirect()->route('timeline.index');
         }   
     }
     public function show($id)
     {
-        $place = $this->place->getPlaceById($id);
-        return view('places.view',compact('place'));
+        $this->authorize('haveaccess', 'place.show');
+        $place = $this->timeline->getPlaceById($id);
+        return view('timelines.view',compact('place'));
     }
     public function destroy($id)
     {
+        $this->authorize('haveaccess', 'place.delete');
         $this->place->changeState($id);
-        return redirect()->route('place.index');
+        return redirect()->route('timeline.index');
     }
 }

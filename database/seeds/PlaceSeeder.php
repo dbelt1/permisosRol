@@ -1,7 +1,7 @@
 <?php
 use Illuminate\Database\Seeder;
 use App\Models\Permissions\Permission;
-class placeSeeder extends Seeder
+class PlaceSeeder extends Seeder
 {
     public function run()
     {

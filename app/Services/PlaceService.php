@@ -12,26 +12,50 @@ class PlaceService
         $this->place = new Place;
     }
     //queries
-    public function getPlace()
+    public function getPlace($timeline)
     {
-        return $this->place->where('state',1)->get(['id', 'name','description']);
+        return $this->place->where('state',1)->where('timeline',$timeline)->get(['id','createdDate','name','description','image']);
     }
     public function getPlaceById($id)
     {
         return $this->place->findOrFail($id);
     }
-    public function index()
+    //linea de tiempo solo para el frontend del usuario
+    public function getTimeline()
     {
-        return $this->getPlace();
+        return $this->place->where('state',1)->where('timeline',1)->orderBy('createdDate','DESC')->get(['id','createdDate','name','description','image']);
     }
-    public function store($request)
+    //metodos
+    public function index($timeline)
     {
-        $this->place->create($request->all());
+        return $this->getPlace($timeline);
     }
-    public function update($request, $id)
+    public function store($request,$route,$timeline)
+    {
+        $this->place->create([
+            'name'=>$request->name,
+            'category_id'=>$request->category_id,
+            'description'=>$request->description,
+            'length'=>$request->length,
+            'latitude'=>$request->latitude,
+            'createdDate'=>$request->createdDate,
+            'timeline' => $timeline,
+            'image'=>$route,
+        ]);
+    }
+    public function update($request, $id,$route,$timeline)
     {
         $place = $this->getPlaceById($id);
-        $place->update($request->all());
+        $place->update([
+            'name'=>$request->name,
+            'category_id'=>$request->category_id,
+            'description'=>$request->description,
+            'length'=>$request->length,
+            'latitude'=>$request->latitude,
+            'timeline' => $timeline,
+            'image'=> $route !== null ? $route : $place->image,
+            'createdDate'=>$request->createdDate,
+        ]);
     }
     public function show($id)
     {

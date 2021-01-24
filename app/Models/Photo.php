@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 use App\Traits\ImageTrait;
 
 class Photo extends Model
@@ -14,6 +15,6 @@ class Photo extends Model
 
     public function getUrlPathAttribute()
     {
-        return \Storage::url('posts/image/'.$this->route);
+        return Storage::url('posts/image/'.$this->route);
     }
 }

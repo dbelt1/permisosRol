@@ -9,19 +9,21 @@
                     @include('custom.message')
                         <div class="container">
 
-                            <h3>Ver Lugar</h3>
-                            <img src=" {{ $place->url_path }}" alt="" width="200px" height="200px">
+                            <h3>Crear Usuario</h3>
+
                             <div class="form-group">
                                 <label>Name</label>
-                                <div>{{$place->name}}</div>
+                                <div>{{$category->name}}</div>
                             </div>
+
                             <div class="form-group">
                                 <label>Descripción</label>
-                                <div>{{$place->description}}</div>
+                                <div>{{$category->description}}</div>
                             </div>
                             <div class="form-group">
-                                <a href="{{route('place.index')}}" class="btn btn-danger">Volver</a>
-                                <a href="{{route('place.edit',$place->id)}}" class="btn btn-primary">Editar Lugar</a>
+                                <a href="{{route('category.index')}}" class="btn btn-danger">Volver</a>
+                                <a href="{{route('category.edit',$category->id)}}" class="btn btn-primary">Editar Categoria</a>
+                            
                             </div>
                         </div>
                 </div>

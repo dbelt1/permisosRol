@@ -27,7 +27,7 @@ class PostController extends Controller
     public function create()
     {
         $this->authorize('haveaccess', 'post.create');
-        $places = $this->place->getplace();
+        $places = $this->place->getplace(0);
         return view('posts.create',compact('places'));
     }
     public function store(PostRequest $request)
@@ -42,7 +42,7 @@ class PostController extends Controller
     public function edit($id)
     {
         $post = $this->post->findPost($id);
-        $places = $this->place->getplace();
+        $places = $this->place->getplace(0);
         $this->authorize('edit', [$post, ['post.edit', 'postown.edit']]);
         return view('posts.edit',compact('post','places'));
     }
@@ -57,7 +57,7 @@ class PostController extends Controller
     public function show($id)
     {
         $post = $this->post->findPost($id);
-        $places = $this->place->getplace();
+        $places = $this->place->getplace(0);
         $this->authorize('view', [$post, ['post.show', 'postown.show']]);
         $post = $this->post->show($id);
         return view('posts.show',compact('post','places'));

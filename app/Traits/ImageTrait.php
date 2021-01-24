@@ -16,4 +16,13 @@ trait ImageTrait
        }
        return $route;
    } 
+   static function saveOneImage($image,$link)
+   {
+        $route = null;
+        $nombre = time() . '_' .$image->getClientOriginalName();
+        $ruta = storage_path($link);
+        $image->move($ruta,$nombre);
+        $route = $nombre;
+        return $route;
+   }
 }

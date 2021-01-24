@@ -17,24 +17,30 @@
                             <div class="container">
 
                                 <div class="form-group">
-                                    <label>Texto de Post:</label>
-                                    <div>{{ $post->post }}</div>
+                                    <label>Comentario</label>
+                                    <div>{{ $comment->comment }}</div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Categoría:</label>
-                                    <div>{{ $post->place->name }}</div>
+                                    <label>Autor comentario:</label>
+                                    <div>{{ $comment->user->name }}</div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Autor:</label>
-                                    <div>{{ $post->user->name }}</div>
+                                    <label>Email:</label>
+                                    <div>{{ $comment->user->email }}</div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Publicación Id:</label>
+                                    <div>{{ $comment->post->id }}</div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Publicación:</label>
+                                    <div>{{ $comment->post->post }}</div>
                                 </div>
 
                                 <div class="form-group">
-                                    <a href="{{ route('post.index') }}" class="btn btn-danger">Volver</a>
-                                    <a href="{{ route('post.edit', $post->id) }}" class="btn btn-primary">Editar
-                                        Publicación</a>
+                                    <a href="{{ route('comment.index') }}" class="btn btn-danger">Volver</a>
 
                                 </div>
                             </div>
